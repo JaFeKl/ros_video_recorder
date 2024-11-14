@@ -1,0 +1,11 @@
+<launch>
+	<arg name="image_topic" default="/image_raw" />
+	<arg name="ns" default="" />
+
+    <group ns="$(arg ns)">
+		<node name="video_recorder" pkg="image_stream_to_video" type="VideoRecorder.py" output="screen">
+			<!-- OPC UA specifics" -->
+			<param name="image_topic" type="string" value="$(arg image_topic)" />
+		</node>
+	</group>
+</launch>
